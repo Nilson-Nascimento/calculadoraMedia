@@ -9,6 +9,14 @@ const spanAprovado = '<span class="resultado aprovado">Aprovado</span>'
 const spanReprovado = '<span class="resultado reprovado">Reprovado</span>'
 const notaMinima = parseFloat(prompt("Digite Nota da média."))
 
+while(notaMinima <= 0){
+    alert('A Nota deve ser maior que zero!')
+    console.log(notaMinima)
+    notaMinima = parseFloat(prompt("Digite Nota da média."))
+    
+}
+
+
 form.addEventListener('submit' , function(e){
     e.preventDefault();
 
@@ -36,6 +44,7 @@ function addLinha(){
 
     /**Adiciona linhas com as inofrmações no corpo da página */
     let linha = '<tr>' /**Abertura da tag tr (usa-se aspas simples) */
+    linha += `<td>${atividades.length}</td>`
     linha += `<td>${inputNomeAtividade.value} </td>` /**Coluna 1 da tabela */
     linha += `<td>${inputNotaAtividade.value} </td>` /** Coluna 2 da tabela */
     linha += `<td>${inputNotaAtividade.value >= notaMinima ? `${emojiFeliz}` : `${emojiTriste}`} </td>` /** Coluna 3 da tabela */
